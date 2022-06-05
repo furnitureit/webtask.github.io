@@ -182,80 +182,18 @@ mysqli_query($con,$query);
    
    <div class="container-fluid">
     <div class="row">
-	  <!--<div class="col-lg-4 col-md-4 col-12">
+	  <div class="col-lg-4 col-md-4 col-12">
 	    <img src="images/cs3.jpg" class="img-fluid pb-4"> 
-	  </div>-->
+	  </div>
 	  
-	  <!--<div class="col-lg-4 col-md-4 col-12">
+	  <div class="col-lg-4 col-md-4 col-12">
 	    <img src="images/cs3.jpg" class="img-fluid pb-4"> 
-	  </div>-->
-	  
-	  <?php
-	    $con = mysqli_connect('localhost','root');
-		mysqli_select_db($con,'displayupload');
-		
-		if(isset($_POST['submit']))
-		{
-			$files = $_FILES['file'];
-			//print_r($files);
-			
-			$filename = $files['name'];
-			$fileerror = $file['error'];
-			$filetmp = $files['tmp_name'];
-			
-			$fileext = explode('.',$filename);
-			$filecheck = strtolower(end($fileext)); 
-			
-			$fileextstored = array('png','jpg','jpeg');
-			
-			
-			if(in_array($filecheck,$fileextstored)){
-				
-				$destinationfile ='upload/'.$filename;
-				//print_r($destinationfile);
-				
-			    move_uploaded_file($files['tmp_name'],'upload/'.$files['name']);
-				$filetemppath = 'upload/'.$files['name'];
-				
-				$q = "INSERT INTO `imguplaod`(`image`) VALUES ('$filetemppath')";
-				
-				$query = mysqli_query($con,$q);
-				
-			}
-			
-			// header("location:index.php");
-			// header("Refresh:0; url=index.php");
-				
-		}
-		$displayquery = "select * from imguplaod";
-			    $querydisplay = mysqli_query($con,$displayquery);
-				
-				//$row = mysqli_num_rows($querydisplay);
-				
-				 while($result = mysqli_fetch_array($querydisplay))
-				 {
-					 if(empty($result['image']))
-					{
-						break;
-					}
-					?>
-					
-					<div class="col-md-2" >
-					 <img src="<?php echo $result['image'];?>" class="pb-4" alt="Girl in a jacket" width="500" height="600" style="border-radius: 10%;">
-					</div>
-					
-					<?php
-					
-					
-				 }
-
-
-	  ?>
-	 
-	
+	  </div>
 	  
 	  
-	  <!--<div class="col-lg-4 col-md-4 col-12">
+	  
+	  
+	  <div class="col-lg-4 col-md-4 col-12">
 	    <img src="images/cs3.jpg" class="img-fluid pb-4"> 
 	  </div>
 	  
@@ -282,7 +220,7 @@ mysqli_query($con,$query);
 	  
 	  <div class="col-lg-4 col-md-4 col-12">
 	    <img src="images/cs6.jpg" class="img-fluid pb-3"> 
-	  </div>-->
+	  </div>
 	  
    </div>
    
